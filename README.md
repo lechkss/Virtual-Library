@@ -18,3 +18,17 @@ Books (Library)
 * Создана страница статистики с количеством книг, средним рейтингом и популярными жанрами
 * Реализована система пользователей (регистрация+вход) с функцией "Избранное"
 * Разработано API для книг с возвратом JSON и фильтрацией через параметры URL
+
+Очевидно, что данный проект потребовал щалезть в интернет, взять оттуда разные структуры, осознать из и вставить из в код. Ниже я написала список источников, которые я испольщовала (Даже включая реддит и другие сообщества)
+* https://flask.palletsprojects.com/en/stable/
+* https://flask-sqlalchemy.palletsprojects.com/en/stable/
+* https://flask-login.readthedocs.io/en/latest/
+* https://werkzeug.palletsprojects.com/en/stable/
+* https://jinja.palletsprojects.com/en/stable/
+* https://realpython.com/using-flask-login-for-user-management-with-flask/
+* https://www.geeksforgeeks.org/connect-flask-to-a-database-with-flask-sqlalchemy/ _(ОЧЕНЬ ПОЛЕЗНО!!!)_
+* https://pythonbasics.org/flask-login/ (Очень помогло разобраться с логином, этот ресурс мне посоветовал папа)
+* https://pythonbasics.org/flask-upload-file/
+* https://www.reddit.com/r/flask/
+* https://github.com/pallets
+* https://stackoverflow.com/questions/tagged/flask (Мне даже пришлось здесь зарегистрироваться) 
