@@ -27,8 +27,8 @@ Books (Library)
 * https://jinja.palletsprojects.com/en/stable/
 * https://realpython.com/using-flask-login-for-user-management-with-flask/
 * https://www.geeksforgeeks.org/connect-flask-to-a-database-with-flask-sqlalchemy/ _(ОЧЕНЬ ПОЛЕЗНО!!!)_
-* https://pythonbasics.org/flask-login/ (Очень помогло разобраться с логином, этот ресурс мне посоветовал папа)
+* https://pythonbasics.org/flask-login/ _(Очень помогло разобраться с логином, этот ресурс мне посоветовал папа)_
 * https://pythonbasics.org/flask-upload-file/
 * https://www.reddit.com/r/flask/
 * https://github.com/pallets
-* https://stackoverflow.com/questions/tagged/flask (Мне даже пришлось здесь зарегистрироваться) 
+* https://stackoverflow.com/questions/tagged/flask _(Мне даже пришлось здесь зарегистрироваться)_
