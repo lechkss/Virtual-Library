@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">{{ book.title }}</h1>
+<p class="text-gray-600 mb-2">Автор: {{ book.author }}</p>
+<p class="text-sm text-gray-500 mb-4">Жанры: {{ book.genres|map(attribute='name')|join(', ') }}</p>
+
+{% if book.cover %}
+    <img src="{{ url_for('static', filename='uploads/' ~ book.cover) }}" class="mb-4 w-64 rounded shadow">
+{% endif %}
+
+{% if avg_rating %}
+<p class="mb-2">Средний рейтинг: <span class="text-black-500 font-semibold">{{ avg_rating }} ★</span></p>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+<form action="{{ url_for('rate_book', book_id=book.id) }}" method="post" class="mb-4">
+    <label for="rating">Оценить:</label>
+    <select name="rating" class="p-1 border rounded">
+        {% for i in range(1, 6) %}
+        <option value="{{ i }}">{{ i }} ★</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="bg-black-400 text-white px-2 py-1 rounded">Оценить</button>
+</form>
+<form action="{{ url_for('add_review', book_id=book.id) }}" method="post" class="mb-4">
+    <textarea name="review" class="w-full border p-2 rounded" placeholder="Ваш отзыв..."></textarea>
+    <button type="submit" class="bg-black-500 text-white px-4 py-2 rounded mt-2">Оставить отзыв</button>
+</form>
+<div class="mb-4 flex gap-2">
+    <a href="{{ url_for('toggle_favorite', book_id=book.id) }}" class="bg-black-500 text-white px-3 py-1 rounded">{{ 'Удалить из избранного' if book in current_user.favorites else 'Добавить в избранное' }}</a>
+    <a href="{{ url_for('mark_status', book_id=book.id, status='read') }}" class="bg-black-500 text-white px-3 py-1 rounded">Прочитано</a>
+    <a href="{{ url_for('mark_status', book_id=book.id, status='want_to_read') }}" class="bg-black-500 text-white px-3 py-1 rounded">Хочу прочитать</a>
+</div>
+{% endif %}
+<h2 class="text-xl font-semibold mt-6 mb-2">Отзывы:</h2>
+<div class="space-y-2">
+    {% for review in book.reviews %}
+        <div class="bg-gray-100 p-2 rounded">
+            <p>{{ review.text }}</p>
+        </div>
+    {% else %}
+        <p class="text-gray-500">Отзывов пока нет.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

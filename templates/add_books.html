@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Добавить книгу</h2>
+<form method="post" enctype="multipart/form-data" class="space-y-4">
+    <input type="text" name="title" placeholder="Название книги" required class="w-full p-2 border rounded">
+    <input type="text" name="author" placeholder="Автор" required class="w-full p-2 border rounded">
+
+    <label for="genres">Жанры:</label>
+    <select name="genres" multiple required class="w-full p-2 border rounded">
+        {% for genre in genres %}
+            <option value="{{ genre.id }}">{{ genre.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="cover">Обложка:</label>
+    <input type="file" name="cover" accept="image/*" class="w-full">
+
+    <label for="rating">Оценка:</label>
+    <select name="rating" class="w-full p-2 border rounded">
+        {% for i in range(1, 6) %}
+            <option value="{{ i }}">{{ i }} ★</option>
+        {% endfor %}
+    </select>
+
+    <label for="review">Отзыв:</label>
+    <textarea name="review" class="w-full p-2 border rounded" placeholder="Напишите отзыв..."></textarea>
+
+    <button type="submit" class="bg-black-600 text-white px-4 py-2 rounded">Добавить книгу</button>
+</form>
+{% endblock %}

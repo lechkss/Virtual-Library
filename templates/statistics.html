@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Статистика библиотеки</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold">Всего книг</h2>
+        <p class="text-xl">{{ total_books }}</p>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold">Средний рейтинг</h2>
+        <p class="text-xl">{{ average_rating }} ★</p>
+    </div>
+
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-lg font-semibold">Популярные жанры</h2>
+        <ul class="list-disc ml-5">
+            {% for genre, count in top_genres %}
+            <li>{{ genre }} — {{ count }} книг</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
